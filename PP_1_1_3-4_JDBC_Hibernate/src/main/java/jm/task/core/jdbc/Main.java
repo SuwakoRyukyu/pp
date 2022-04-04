@@ -15,10 +15,10 @@ public class Main {
         userDao.saveUser("Bandersnatch", "Cummerbund", (byte) 25);
         userDao.saveUser("Billiardball", "Banglesnatch", (byte) 31);
         userDao.saveUser("Baseballmitt", "Cumberbund", (byte) 38);
-        userDao.cleanUsersTable();
+        System.out.println(userDao.getAllUsers());
         userDao.removeUserById(1);
-        userDao.getAllUsers();
+        System.out.println(userDao.getAllUsers());
+        userDao.cleanUsersTable();
         userDao.dropUsersTable();
-        Util.close();
     }
 }
