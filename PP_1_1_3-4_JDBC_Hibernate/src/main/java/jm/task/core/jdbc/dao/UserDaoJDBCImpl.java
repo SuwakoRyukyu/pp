@@ -28,7 +28,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void dropUsersTable() {
         try (Connection conn = Util.getConnection();
              Statement st = conn.createStatement()) {
-            st.executeUpdate("DROP TABLE IF EXISTS UserTest");
+            st.executeUpdate("DROP TABLE IF EXISTS Users");
             System.out.println("Table UserTest was deleted");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -83,7 +83,7 @@ public class UserDaoJDBCImpl implements UserDao {
     public void cleanUsersTable() {
         try (Connection conn = Util.getConnection();
              Statement st = conn.createStatement()) {
-                st.executeUpdate("TRUNCATE UserTest");
+                st.executeUpdate("TRUNCATE Users");
         } catch (SQLException e) {
             e.printStackTrace();
         }
