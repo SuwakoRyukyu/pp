@@ -6,14 +6,23 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.sql.*;
+import java.util.Properties;
 
 // The reason I'm using Mariadb is that the default implementation of MySQL on my Linux distro (Arch Linux) is Mariadb, and there's no actual way to change it to MySQL as far as I can see.
 public class Util {
+
     public static Session getSession() {
         Session mySession = null;
+        Properties myProperties = new Properties();
         try {
+            myProperties.setProperty("hibernate.connection.url","jdbc:mariadb://localhost:3306/mydb");
+            myProperties.setProperty("hibernate.connection.username", "root");
+            myProperties.setProperty("hibernate.connection.password", "suwako");
+            myProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+            myProperties.setProperty("hibernate.show_sql", "true");
+            myProperties.setProperty("hibernate.format_sql", "true");
             SessionFactory myFactory = new Configuration()
-                    .configure("hibernate.cfg.xml")
+                    .addProperties(myProperties)
                     .addAnnotatedClass(User.class)
                     .buildSessionFactory();
             mySession = myFactory.openSession();
@@ -35,12 +44,5 @@ public class Util {
             e.printStackTrace();
         }
         return connection;
-    }
-    public static void closeConnection() {
-        try {
-            getConnection().close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }

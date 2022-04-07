@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "User")
+@Table (name = "Users")
 public class User {
     public User() {
     }
@@ -24,16 +24,15 @@ public class User {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
     private Long id;
 
-    @Column(name = "name")
+    @Column (name = "firstName")
     private String name;
 
-    @Column(name = "lastName")
+    @Column (name = "lastName")
     private String lastName;
 
-    @Column(name = "age")
+    @Column (name = "age")
     private Byte age;
 
     @Override

@@ -12,7 +12,7 @@ public class UserDaoJDBCImpl implements UserDao {
         try (Connection conn = Util.getConnection();
              Statement st = conn.createStatement()) {
             st.executeUpdate(
-                    "CREATE TABLE IF NOT EXISTS UserTest(" +
+                    "CREATE TABLE IF NOT EXISTS Users(" +
                             "id INT NOT NULL AUTO_INCREMENT," +
                             "name VARCHAR(45) NOT NULL," +
                             "lastName VARCHAR (45) NOT NULL," +
@@ -38,22 +38,20 @@ public class UserDaoJDBCImpl implements UserDao {
     public void saveUser(String name, String lastName, byte age) {
         try (Connection conn = Util.getConnection();
              PreparedStatement ps = conn.prepareStatement(
-                     "INSERT INTO UserTest (name, lastName, age) VALUES (?, ?, ?)")) {
+                     "INSERT INTO Users (name, lastName, age) VALUES (?, ?, ?)")) {
             ps.setNString(1, name);
             ps.setNString(2, lastName);
             ps.setInt(3, age);
             ps.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            Util.closeConnection();
         }
     }
 
     public void removeUserById(long id) {
         try (Connection conn = Util.getConnection();
              PreparedStatement ps = conn.prepareStatement(
-                     "DELETE FROM UserTest WHERE id = (?)")) {
+                     "DELETE FROM Users WHERE id = (?)")) {
             ps.setLong(1, id);
             ps.executeQuery();
         } catch (SQLException e) {
@@ -65,7 +63,7 @@ public class UserDaoJDBCImpl implements UserDao {
         ArrayList<User> userList = new ArrayList<>();
         try (Connection conn = Util.getConnection();
              Statement stat = conn.createStatement();
-             ResultSet rs = stat.executeQuery("SELECT * FROM UserTest")) {
+             ResultSet rs = stat.executeQuery("SELECT * FROM Users")) {
             while (rs.next()) {
                 User myUser = new User();
                 {

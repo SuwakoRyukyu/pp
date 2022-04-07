@@ -4,23 +4,23 @@ import jm.task.core.jdbc.model.User;
 import jm.task.core.jdbc.util.Util;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
-    private final Session mySession = Util.getSession();
     @Override
     public void createUsersTable() {
         Transaction myTransaction = null;
-        try {
+        try (Session mySession = Util.getSession()) {
             myTransaction = mySession.beginTransaction();
             mySession.createSQLQuery(
-                    "CREATE TABLE IF NOT EXISTS User(" +
+                    "CREATE TABLE IF NOT EXISTS Users(" +
                     "id INT NOT NULL AUTO_INCREMENT," +
-                    "name VARCHAR(45) NOT NULL," +
+                    "firstName VARCHAR(45) NOT NULL," +
                     "lastName VARCHAR (45) NOT NULL," +
                     "age INT NOT NULL," +
-                    "PRIMARY KEY (id))");
+                    "PRIMARY KEY (id))").addEntity(User.class).executeUpdate();
             myTransaction.commit();
         } catch (Exception e) {
             assert myTransaction != null;
@@ -31,10 +31,10 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void dropUsersTable() {
         Transaction myTransaction = null;
-        try {
+        try (Session mySession = Util.getSession()){
             myTransaction = mySession.beginTransaction();
-            mySession.createSQLQuery("DROP TABLE IF EXISTS User");
-            myTransaction.commit();
+            mySession.createSQLQuery("DROP TABLE IF EXISTS Users").executeUpdate();
+            mySession.getTransaction().commit();
         } catch (Exception e) {
             assert myTransaction != null;
             myTransaction.rollback();
@@ -44,14 +44,14 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void saveUser(String name, String lastName, byte age) {
         Transaction myTransaction = null;
-        try {
+        try (Session mySession = Util.getSession()) {
+            User myUser = new User(name, lastName, age);
             myTransaction = mySession.beginTransaction();
-            mySession.persist(new User(name, lastName, age));
+            mySession.persist("User", myUser);
             mySession.getTransaction().commit();
         } catch (Exception e) {
-            if (myTransaction != null) {
-                myTransaction.rollback();
-            }
+            assert myTransaction != null;
+            myTransaction.rollback();
             e.printStackTrace();
         }
     }
@@ -59,9 +59,11 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void removeUserById(long id) {
         Transaction myTransaction = null;
-        try {
+        try (Session mySession = Util.getSession()){
             myTransaction = mySession.beginTransaction();
-            mySession.createQuery("DELETE FROM User WHERE id = :id");
+            Query myQuery = mySession.createQuery("delete User where id = :id");
+            myQuery.setParameter("id", id);
+            myQuery.executeUpdate();
             myTransaction.commit();
         } catch (Exception e) {
             assert myTransaction != null;
@@ -73,9 +75,9 @@ public class UserDaoHibernateImpl implements UserDao {
     public List<User> getAllUsers() {
         Transaction myTransaction = null;
         List<User> userList = null;
-        try {
-            myTransaction = Util.getSession().beginTransaction();
-            userList = Util.getSession().createQuery("from User").getResultList();
+        try (Session mySession = Util.getSession()){
+            myTransaction = mySession.beginTransaction();
+            userList = mySession.createQuery("from User", User.class).getResultList();
             myTransaction.commit();
         } catch (Exception e) {
            assert myTransaction != null;
@@ -87,9 +89,9 @@ public class UserDaoHibernateImpl implements UserDao {
     @Override
     public void cleanUsersTable() {
         Transaction myTransaction = null;
-        try {
+        try (Session mySession = Util.getSession()){
             myTransaction = mySession.beginTransaction();
-            mySession.createQuery("delete from User");
+            mySession.createQuery("delete from User").executeUpdate();
             myTransaction.commit();
         } catch(Exception e) {
             assert myTransaction != null;
