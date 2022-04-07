@@ -1,0 +1,37 @@
+Index: src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package jm.task.core.jdbc.dao;\nimport jm.task.core.jdbc.model.User;\nimport jm.task.core.jdbc.util.Util;\n\nimport java.sql.*;\nimport java.util.ArrayList;\nimport java.util.List;\n\npublic class UserDaoJDBCImpl implements UserDao {\n\n    public void createUsersTable() {\n        try (Connection conn = Util.getConnection();\n             Statement st = conn.createStatement()) {\n            st.executeUpdate(\n                    \"CREATE TABLE IF NOT EXISTS UserTest(\" +\n                            \"id INT NOT NULL AUTO_INCREMENT,\" +\n                            \"name VARCHAR(45) NOT NULL,\" +\n                            \"lastName VARCHAR (45) NOT NULL,\" +\n                            \"age INT NOT NULL,\" +\n                            \"PRIMARY KEY (id))\");\n            System.out.println(\"Table UserTest was created\");\n        } catch (SQLException e) {\n            System.out.println(\"Table creating Error\");\n            e.printStackTrace();\n        }\n    }\n\n    public void dropUsersTable() {\n        try (Connection conn = Util.getConnection();\n             Statement st = conn.createStatement()) {\n            st.executeUpdate(\"DROP TABLE IF EXISTS UserTest\");\n            System.out.println(\"Table UserTest was deleted\");\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }\n\n    public void saveUser(String name, String lastName, byte age) {\n        try (Connection conn = Util.getConnection();\n             PreparedStatement ps = conn.prepareStatement(\n                     \"INSERT INTO UserTest (name, lastName, age) VALUES (?, ?, ?)\")) {\n            ps.setNString(1, name);\n            ps.setNString(2, lastName);\n            ps.setInt(3, age);\n            ps.executeQuery();\n        } catch (SQLException e) {\n            e.printStackTrace();\n        } finally {\n            Util.close();\n        }\n    }\n\n    public void removeUserById(long id) {\n        try (Connection conn = Util.getConnection();\n             PreparedStatement ps = conn.prepareStatement(\n                     \"DELETE FROM UserTest WHERE id = (?)\")) {\n            ps.setLong(1, id);\n            ps.executeQuery();\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }\n\n    public List<User> getAllUsers() {\n        ArrayList<User> userList = new ArrayList<>();\n        try (Connection conn = Util.getConnection();\n             Statement stat = conn.createStatement();\n             ResultSet rs = stat.executeQuery(\"SELECT * FROM UserTest\")) {\n            while (rs.next()) {\n                User myUser = new User();\n                {\n                    myUser.setId(rs.getLong(\"id\"));\n                    myUser.setName(rs.getString(\"name\"));\n                    myUser.setLastName(rs.getString(\"lastName\"));\n                    myUser.setAge(rs.getByte(\"age\"));\n                }\n                userList.add(myUser);\n            }\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n        return userList;\n    }\n\n    public void cleanUsersTable() {\n        try (Connection conn = Util.getConnection();\n             Statement st = conn.createStatement()) {\n                st.executeUpdate(\"TRUNCATE UserTest\");\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java b/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java
+--- a/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java	(revision 98e6291f1bfae0f3c1225224f00fd4b0b94b2fe8)
++++ b/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java	(date 1649375104470)
+@@ -12,7 +12,7 @@
+         try (Connection conn = Util.getConnection();
+              Statement st = conn.createStatement()) {
+             st.executeUpdate(
+-                    "CREATE TABLE IF NOT EXISTS UserTest(" +
++                    "CREATE TABLE IF NOT EXISTS Users(" +
+                             "id INT NOT NULL AUTO_INCREMENT," +
+                             "name VARCHAR(45) NOT NULL," +
+                             "lastName VARCHAR (45) NOT NULL," +
+@@ -28,7 +28,7 @@
+     public void dropUsersTable() {
+         try (Connection conn = Util.getConnection();
+              Statement st = conn.createStatement()) {
+-            st.executeUpdate("DROP TABLE IF EXISTS UserTest");
++            st.executeUpdate("DROP TABLE IF EXISTS Users");
+             System.out.println("Table UserTest was deleted");
+         } catch (SQLException e) {
+             e.printStackTrace();
+@@ -45,8 +45,6 @@
+             ps.executeQuery();
+         } catch (SQLException e) {
+             e.printStackTrace();
+-        } finally {
+-            Util.close();
+         }
+     }
+ 
