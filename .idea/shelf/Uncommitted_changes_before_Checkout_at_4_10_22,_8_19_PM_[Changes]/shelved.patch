@@ -1,0 +1,778 @@
+Index: PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package jm.task.core.jdbc;\n\nimport jm.task.core.jdbc.dao.UserDaoHibernateImpl;\nimport jm.task.core.jdbc.util.Util;\n\nimport java.sql.SQLException;\n\npublic class Main {\n    public static void main(String[] args) throws SQLException {\n        Util.getConnection();\n        UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();\n        userDao.createUsersTable();\n        userDao.saveUser(\"Butercup\", \"Camouflage\", (byte) 20);\n        userDao.saveUser(\"Bandersnatch\", \"Cummerbund\", (byte) 25);\n        userDao.saveUser(\"Billiardball\", \"Banglesnatch\", (byte) 31);\n        userDao.saveUser(\"Baseballmitt\", \"Cumberbund\", (byte) 38);\n        System.out.println(userDao.getAllUsers());\n        userDao.removeUserById(1);\n        System.out.println(userDao.getAllUsers());\n        userDao.cleanUsersTable();\n        userDao.dropUsersTable();\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java b/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java
+--- a/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java	(revision f26cea560101e300c3b4082df8ef84f3529b0944)
++++ b/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java	(date 1649603911993)
+@@ -6,6 +6,7 @@
+ import java.sql.SQLException;
+ 
+ public class Main {
++
+     public static void main(String[] args) throws SQLException {
+         Util.getConnection();
+         UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1649603912006)
++++ b/.idea/.gitignore	(date 1649603912006)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1649603912020)
++++ b/.idea/vcs.xml	(date 1649603912020)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jpa-buddy.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jpa-buddy.xml b/.idea/jpa-buddy.xml
+new file mode 100644
+--- /dev/null	(date 1649588494103)
++++ b/.idea/jpa-buddy.xml	(date 1649588494103)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="JpaBuddyIdeaProjectConfig">
++    <option name="defaultUnitInitialized" value="true" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1649588494117)
++++ b/.idea/jarRepositories.xml	(date 1649588494117)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_mariadb_jdbc_mariadb_java_client_3_0_4.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_mariadb_jdbc_mariadb_java_client_3_0_4.xml b/.idea/libraries/Maven__org_mariadb_jdbc_mariadb_java_client_3_0_4.xml
+new file mode 100644
+--- /dev/null	(date 1649588494046)
++++ b/.idea/libraries/Maven__org_mariadb_jdbc_mariadb_java_client_3_0_4.xml	(date 1649588494046)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.mariadb.jdbc:mariadb-java-client:3.0.4">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/mariadb/jdbc/mariadb-java-client/3.0.4/mariadb-java-client-3.0.4.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/mariadb/jdbc/mariadb-java-client/3.0.4/mariadb-java-client-3.0.4-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/mariadb/jdbc/mariadb-java-client/3.0.4/mariadb-java-client-3.0.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1649588494086)
++++ b/.idea/compiler.xml	(date 1649588494086)
+@@ -0,0 +1,16 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="TaskJDBC" />
++      </profile>
++    </annotationProcessing>
++    <bytecodeTargetLevel>
++      <module name="TaskJDBC" target="17" />
++    </bytecodeTargetLevel>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml b/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml
+new file mode 100644
+--- /dev/null	(date 1649588494018)
++++ b/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_2_spec_1_1_1_Final.xml	(date 1649588494018)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/spec/javax/transaction/jboss-transaction-api_1.2_spec/1.1.1.Final/jboss-transaction-api_1.2_spec-1.1.1.Final-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml b/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml
+new file mode 100644
+--- /dev/null	(date 1649588494032)
++++ b/.idea/libraries/Maven__org_jvnet_staxex_stax_ex_1_8.xml	(date 1649588494032)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.jvnet.staxex:stax-ex:1.8">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/staxex/stax-ex/1.8/stax-ex-1.8.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/staxex/stax-ex/1.8/stax-ex-1.8-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jvnet/staxex/stax-ex/1.8/stax-ex-1.8-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml b/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml
+new file mode 100644
+--- /dev/null	(date 1649588493988)
++++ b/.idea/libraries/Maven__org_jboss_jandex_2_2_3_Final.xml	(date 1649588493988)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.jboss:jandex:2.2.3.Final">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/jandex/2.2.3.Final/jandex-2.2.3.Final-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml b/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml
+new file mode 100644
+--- /dev/null	(date 1649588494005)
++++ b/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_2_Final.xml	(date 1649588494005)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.4.2.Final/jboss-logging-3.4.2.Final-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hibernate_hibernate_core_5_6_3_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_3_Final.xml b/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_3_Final.xml
+new file mode 100644
+--- /dev/null	(date 1649588493943)
++++ b/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_3_Final.xml	(date 1649588493943)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.hibernate:hibernate-core:5.6.3.Final">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.6.3.Final/hibernate-core-5.6.3.Final.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.6.3.Final/hibernate-core-5.6.3.Final-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.6.3.Final/hibernate-core-5.6.3.Final-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_2_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_2_Final.xml b/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_2_Final.xml
+new file mode 100644
+--- /dev/null	(date 1649588493968)
++++ b/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_1_api_1_0_2_Final.xml	(date 1649588493968)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml b/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml
+new file mode 100644
+--- /dev/null	(date 1649588493918)
++++ b/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml	(date 1649588493918)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.hamcrest:hamcrest-core:1.3">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml b/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml
+new file mode 100644
+--- /dev/null	(date 1649588493929)
++++ b/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml	(date 1649588493929)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/hibernate/common/hibernate-commons-annotations/5.1.2.Final/hibernate-commons-annotations-5.1.2.Final-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml
+new file mode 100644
+--- /dev/null	(date 1649588493888)
++++ b/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_1.xml	(date 1649588493888)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/jaxb-runtime/2.3.1/jaxb-runtime-2.3.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml b/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml
+new file mode 100644
+--- /dev/null	(date 1649588493902)
++++ b/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_1.xml	(date 1649588493902)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: org.glassfish.jaxb:txw2:2.3.1">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/org/glassfish/jaxb/txw2/2.3.1/txw2-2.3.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__mysql_mysql_connector_java_8_0_25.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_25.xml b/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_25.xml
+new file mode 100644
+--- /dev/null	(date 1649588493862)
++++ b/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_25.xml	(date 1649588493862)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: mysql:mysql-connector-java:8.0.25">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.25/mysql-connector-java-8.0.25.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.25/mysql-connector-java-8.0.25-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.25/mysql-connector-java-8.0.25-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_20.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_20.xml b/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_20.xml
+new file mode 100644
+--- /dev/null	(date 1649588493876)
++++ b/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_20.xml	(date 1649588493876)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: net.bytebuddy:byte-buddy:1.11.20">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.11.20/byte-buddy-1.11.20.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.11.20/byte-buddy-1.11.20-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/net/bytebuddy/byte-buddy/1.11.20/byte-buddy-1.11.20-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml b/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml
+new file mode 100644
+--- /dev/null	(date 1649588493826)
++++ b/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_3_1.xml	(date 1649588493826)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: javax.xml.bind:jaxb-api:2.3.1">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__junit_junit_4_13_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__junit_junit_4_13_2.xml b/.idea/libraries/Maven__junit_junit_4_13_2.xml
+new file mode 100644
+--- /dev/null	(date 1649588493839)
++++ b/.idea/libraries/Maven__junit_junit_4_13_2.xml	(date 1649588493839)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: junit:junit:4.13.2">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.13.2/junit-4.13.2.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.13.2/junit-4.13.2-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/junit/junit/4.13.2/junit-4.13.2-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml b/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml
+new file mode 100644
+--- /dev/null	(date 1649588493798)
++++ b/.idea/libraries/Maven__javax_activation_javax_activation_api_1_2_0.xml	(date 1649588493798)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: javax.activation:javax.activation-api:1.2.0">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml b/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml
+new file mode 100644
+--- /dev/null	(date 1649588493811)
++++ b/.idea/libraries/Maven__javax_persistence_javax_persistence_api_2_2.xml	(date 1649588493811)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: javax.persistence:javax.persistence-api:2.2">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml b/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml
+new file mode 100644
+--- /dev/null	(date 1649588493768)
++++ b/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_7.xml	(date 1649588493768)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: com.sun.istack:istack-commons-runtime:3.0.7">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/sun/istack/istack-commons-runtime/3.0.7/istack-commons-runtime-3.0.7-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml b/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml
+new file mode 100644
+--- /dev/null	(date 1649588493783)
++++ b/.idea/libraries/Maven__com_sun_xml_fastinfoset_FastInfoset_1_2_15.xml	(date 1649588493783)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.15/FastInfoset-1.2.15.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.15/FastInfoset-1.2.15-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/sun/xml/fastinfoset/FastInfoset/1.2.15/FastInfoset-1.2.15-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml b/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml
+new file mode 100644
+--- /dev/null	(date 1649588493736)
++++ b/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml	(date 1649588493736)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: com.fasterxml:classmate:1.5.1">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.5.1/classmate-1.5.1-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.5.1/classmate-1.5.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml b/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml
+new file mode 100644
+--- /dev/null	(date 1649588493752)
++++ b/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_4.xml	(date 1649588493752)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: com.google.protobuf:protobuf-java:3.11.4">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/com/google/protobuf/protobuf-java/3.11.4/protobuf-java-3.11.4-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Maven__antlr_antlr_2_7_7.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/Maven__antlr_antlr_2_7_7.xml b/.idea/libraries/Maven__antlr_antlr_2_7_7.xml
+new file mode 100644
+--- /dev/null	(date 1649588493710)
++++ b/.idea/libraries/Maven__antlr_antlr_2_7_7.xml	(date 1649588493710)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: antlr:antlr:2.7.7">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.7/antlr-2.7.7-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml b/PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml
+new file mode 100644
+--- /dev/null	(date 1649588493667)
++++ b/PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml	(date 1649588493667)
+@@ -0,0 +1,46 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
++  <component name="FacetManager">
++    <facet type="jpa" name="JPA">
++      <configuration>
++        <setting name="validation-enabled" value="true" />
++        <setting name="provider-name" value="Hibernate" />
++        <datasource-mapping />
++        <naming-strategy-map />
++      </configuration>
++    </facet>
++  </component>
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
++    <output url="file://$MODULE_DIR$/target/classes" />
++    <output-test url="file://$MODULE_DIR$/target/test-classes" />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
++      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
++      <excludeFolder url="file://$MODULE_DIR$/target" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.13.2" level="project" />
++    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
++    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.25" level="project" />
++    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
++    <orderEntry type="library" name="Maven: org.mariadb.jdbc:mariadb-java-client:3.0.4" level="project" />
++    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final" level="project" />
++    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.6.3.Final" level="project" />
++    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.4.2.Final" level="project" />
++    <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
++    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.11.20" level="project" />
++    <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
++    <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.1.1.Final" level="project" />
++    <orderEntry type="library" name="Maven: org.jboss:jandex:2.2.3.Final" level="project" />
++    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.5.1" level="project" />
++    <orderEntry type="library" name="Maven: javax.activation:javax.activation-api:1.2.0" level="project" />
++    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.1.2.Final" level="project" />
++    <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.3.1" level="project" />
++    <orderEntry type="library" name="Maven: org.glassfish.jaxb:jaxb-runtime:2.3.1" level="project" />
++    <orderEntry type="library" name="Maven: org.glassfish.jaxb:txw2:2.3.1" level="project" />
++    <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
++    <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8" level="project" />
++    <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/pp.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/pp.iml b/.idea/pp.iml
+new file mode 100644
+--- /dev/null	(date 1649603912055)
++++ b/.idea/pp.iml	(date 1649603912055)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1649603912032)
++++ b/.idea/misc.xml	(date 1649603912032)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/PP_1_1_3-4_JDBC_Hibernate/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="18" project-jdk-type="JavaSDK" />
++  <component name="ProjectType">
++    <option name="id" value="jpab" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1649603912040)
++++ b/.idea/modules.xml	(date 1649603912040)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml" filepath="$PROJECT_DIR$/PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/pp.iml" filepath="$PROJECT_DIR$/.idea/pp.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file

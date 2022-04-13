@@ -1,0 +1,118 @@
+Index: PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package jm.task.core.jdbc;\n\nimport jm.task.core.jdbc.dao.UserDaoHibernateImpl;\nimport jm.task.core.jdbc.util.Util;\n\nimport java.sql.SQLException;\n\npublic class Main {\n    public static void main(String[] args) throws SQLException {\n        Util.getConnection();\n        UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();\n        userDao.createUsersTable();\n        userDao.saveUser(\"Butercup\", \"Camouflage\", (byte) 20);\n        userDao.saveUser(\"Bandersnatch\", \"Cummerbund\", (byte) 25);\n        userDao.saveUser(\"Billiardball\", \"Banglesnatch\", (byte) 31);\n        userDao.saveUser(\"Baseballmitt\", \"Cumberbund\", (byte) 38);\n        System.out.println(userDao.getAllUsers());\n        userDao.removeUserById(1);\n        System.out.println(userDao.getAllUsers());\n        userDao.cleanUsersTable();\n        userDao.dropUsersTable();\n    }\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java b/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java
+--- a/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java	(revision f26cea560101e300c3b4082df8ef84f3529b0944)
++++ b/PP_1_1_3-4_JDBC_Hibernate/src/main/java/jm/task/core/jdbc/Main.java	(date 1649603840881)
+@@ -6,6 +6,7 @@
+ import java.sql.SQLException;
+ 
+ public class Main {
++
+     public static void main(String[] args) throws SQLException {
+         Util.getConnection();
+         UserDaoHibernateImpl userDao = new UserDaoHibernateImpl();
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1649588448135)
++++ b/.idea/.gitignore	(date 1649588448135)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1649588445712)
++++ b/.idea/vcs.xml	(date 1649588445712)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1649588494070)
++++ b/.idea/misc.xml	(date 1649588494070)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/PP_1_1_3-4_JDBC_Hibernate/pom.xml" />
++      </list>
++    </option>
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="18" project-jdk-type="JavaSDK" />
++  <component name="ProjectType">
++    <option name="id" value="jpab" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1649588493681)
++++ b/.idea/modules.xml	(date 1649588493681)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml" filepath="$PROJECT_DIR$/PP_1_1_3-4_JDBC_Hibernate/TaskJDBC.iml" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/pp.iml" filepath="$PROJECT_DIR$/.idea/pp.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/pp.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/pp.iml b/.idea/pp.iml
+new file mode 100644
+--- /dev/null	(date 1649588445469)
++++ b/.idea/pp.iml	(date 1649588445469)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
