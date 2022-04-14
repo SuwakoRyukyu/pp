@@ -5,15 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="402915e6-1c02-4bd9-8ab9-fcd9404a81bb" name="Changes" comment="1. made hibernate methods">
-      <change afterPath="$PROJECT_DIR$/TaskJDBC.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/dao/UserDaoHibernateImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/dao/UserDaoHibernateImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/dao/UserDaoJDBCImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/service/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jm/task/core/jdbc/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/dao/UserDaoHibernateImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/dao/UserDaoHibernateImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/dao/UserDaoJDBCImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/dao/UserDaoJDBCImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/service/UserServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/util/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jm/task/core/jdbc/util/Util.class" afterDir="false" />
     </list>
@@ -26,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="Hibernate_1_1_4" />
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
@@ -89,12 +88,12 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4862069" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
   </component>
   <component name="ReaderModeSettings">
     <option name="showLigatures" value="true" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.UserServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="jm.task.core.jdbc.Main" />
       <module name="TaskJDBC" />
@@ -156,11 +155,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserServiceTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UserServiceTest.saveUser" />
         <item itemvalue="JUnit.UserServiceTest.getAllUsers" />
         <item itemvalue="JUnit.UserServiceTest.createUsersTable" />
-        <item itemvalue="JUnit.UserServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649281187497</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1. Implemented Lazy initialization for Util class&#10;2. Implemented truncation of table instead of deleting all data from it&#10;3. Exception handling in dao fix&#10;4. Open session fix&#10;5. getSession now returns SessionFactory instead of just Session">
+      <created>1649895429433</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1649895429433</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +232,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/master" />
+                        <option value="JDBC" />
                       </list>
                     </value>
                   </entry>
@@ -247,7 +253,8 @@
     <MESSAGE value="Almost completed UserDaoJDBCImpl implementation" />
     <MESSAGE value="1. Fixed unclosed resources.&#10;2. Connection now closing in dao methods.&#10;3. Reworked methods createUserstable() and dropUsersTable().&#10;4. Fixed output of users in Main" />
     <MESSAGE value="1. made hibernate methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. made hibernate methods" />
+    <MESSAGE value="1. Implemented Lazy initialization for Util class&#10;2. Implemented truncation of table instead of deleting all data from it&#10;3. Exception handling in dao fix&#10;4. Open session fix&#10;5. getSession now returns SessionFactory instead of just Session" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. Implemented Lazy initialization for Util class&#10;2. Implemented truncation of table instead of deleting all data from it&#10;3. Exception handling in dao fix&#10;4. Open session fix&#10;5. getSession now returns SessionFactory instead of just Session" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

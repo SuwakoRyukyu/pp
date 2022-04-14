@@ -2,7 +2,6 @@ package jm.task.core.jdbc.util;
 
 import jm.task.core.jdbc.model.User;
 import org.hibernate.HibernateException;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -16,6 +15,9 @@ public class Util {
 
     private static SessionFactory myFactory;
 
+    private static Connection myConnection;
+
+    // Singleton initialization of Factory
     public static SessionFactory getFactory() {
         if (myFactory == null) {
             Properties myProperties = new Properties();
@@ -38,16 +40,18 @@ public class Util {
         return myFactory;
     }
 
+    // Singleton initialization of Connection
     public static Connection getConnection() {
-    Connection connection = null;
-    try {
-        String url = "jdbc:mariadb://localhost:3306/mydb";
-        String user = "root";
-        String password = "suwako";
-        connection = DriverManager.getConnection(url, user, password);
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-    return connection;
+        if (myConnection == null) {
+            try {
+                String url = "jdbc:mariadb://localhost:3306/mydb";
+                String user = "root";
+                String password = "suwako";
+                myConnection = DriverManager.getConnection(url, user, password);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return myConnection;
     }
 }
